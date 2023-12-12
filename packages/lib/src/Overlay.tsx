@@ -16,11 +16,13 @@ export function Overlay() {
 
   useEffect(() => {
     const ssrHtml = window.BUILDER_IO_SSR_HTML;
+
+    // TO-DO: parametrize this selector
     const newCSRHtml = document.querySelector("#__next")?.innerHTML;
 
     if (!ssrHtml) return;
 
-    // avoid potentially re-rendering and getting a later client side render
+    // avoid potentially re-rendering and getting a subsequent client side render
     if (CSRHtml) return;
 
     const newSSR = pretty(ssrHtml);
@@ -31,7 +33,9 @@ export function Overlay() {
     // TO-DO: make sure there IS a hyration mismatch
 
     setShowModal(true);
-    setHasHydrationMismatch(true);
+    if (window.BUILDER_IO_HYDRATION_ERROR) {
+      setHasHydrationMismatch(true);
+    }
   }, []);
 
   const hideModal = () => {
@@ -58,6 +62,7 @@ export function Overlay() {
             cursor: "pointer",
             display: "flex",
             flexDirection: "column",
+            fontFamily: "monospace",
           }}
           onClick={hideModal}
         >
@@ -80,36 +85,39 @@ export function Overlay() {
                   display: "flex",
                   justifyContent: "space-between",
                   borderBottom: "1px solid black",
+                  alignItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontSize: "1rem",
+                    fontSize: "2rem",
                     fontWeight: "bold",
                     padding: "1rem",
+                    color: "#212529",
                   }}
                 >
-                  Hydration Mismatch Occured. Here is the difference in HTML:
+                  Hydration Mismatch Occured
                 </div>
 
-                <div
+                <button
                   style={{
-                    fontSize: "1rem",
-                    fontWeight: "bold",
-                    padding: "1rem",
-                    textAlign: "right",
+                    all: "unset",
+                    cursor: "pointer",
+                    padding: "0.5rem",
+                    marginRight: "1rem",
+                    backgroundColor: "#212529",
+                    borderRadius: "0.25rem",
+                    color: "white",
                   }}
+                  onClick={hideModal}
                 >
-                  <button style={{ cursor: "pointer" }} onClick={hideModal}>
-                    Close
-                  </button>
-                </div>
+                  CLOSE
+                </button>
               </div>
               <div style={{ position: "relative", width: "100%" }}>
                 <DiffViewer
                   oldValue={SSRHtml}
                   newValue={CSRHtml}
-                  splitView={true}
                   leftTitle={"Server-Side Render"}
                   rightTitle={"Client-Side Render"}
                   compareMethod={DiffMethod.WORDS}
