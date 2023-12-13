@@ -19,7 +19,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "build": "tsup ./src/*  --dts --format esm,cjs",
+    "build": "tsup ./src/*  --dts --format esm,cjs --external webpack",
     "pkg:attw": "attw --pack .",
     "pkg:publint": "publint --strict",
     "lint-pkg": "pnpm run \"/^pkg:.*\""
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
+    "@types/diff": "^5.0.9",
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "^18.2.43",
@@ -38,10 +39,16 @@
     "rimraf": "^3.0.2",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "webpack": "^5.89.0"
   },
   "dependencies": {
+    "diff": "^5.1.0",
+    "git-diff": "^2.0.6",
+    "html-differ": "^1.4.0",
     "pretty": "^2.0.0",
-    "react-diff-viewer": "^3.1.1"
+    "react-diff-view": "^3.2.0",
+    "react-diff-viewer": "^3.1.1",
+    "react-dom": "^18"
   }
 }

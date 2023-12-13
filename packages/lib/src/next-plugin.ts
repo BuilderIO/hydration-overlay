@@ -1,3 +1,4 @@
+import webpack from "webpack";
 import path from "path";
 
 // `entryPoint` can be a string, array of strings, or object whose `import` property is one of those two
@@ -71,8 +72,9 @@ async function addScriptToEntryProperty(currentEntryProperty, buildContext) {
 }
 
 export const withHydrationOverlay =
-  (_pluginOptions = {}) =>
+  (_pluginOptions: { appRootSelector?: string } = {}) =>
   (nextConfig = {}) => {
+    const { appRootSelector = "#__next" } = _pluginOptions;
     return Object.assign({}, nextConfig, {
       webpack(config, ctx) {
         if (!ctx.dev) {
@@ -87,6 +89,13 @@ export const withHydrationOverlay =
         rawNewConfig.entry = async () =>
           addScriptToEntryProperty(config.entry, ctx);
 
+        rawNewConfig.plugins = [
+          ...(rawNewConfig.plugins || []),
+          new webpack.DefinePlugin({
+            "window.BUILDER_HYDRATION_OVERLAY.APP_ROOT_SELECTOR":
+              JSON.stringify(appRootSelector),
+          }),
+        ];
         return rawNewConfig;
       },
     });
