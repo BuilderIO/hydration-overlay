@@ -5,6 +5,16 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "react",
+    "hydration",
+    "overlay",
+    "builder.io"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuilderIO/hydration-overlay.git"
+  },
   "main": "./dist/HydrationOverlay.js",
   "module": "./dist/HydrationOverlay.mjs",
   "exports": {
