@@ -19,7 +19,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "build": "tsup ./src/*  --dts --format esm,cjs --external webpack",
+    "build": "tsup ./src/*  --dts --format esm,cjs --external webpack --clean",
     "pkg:attw": "attw --pack .",
     "pkg:publint": "publint --strict",
     "lint-pkg": "pnpm run \"/^pkg:.*\""
