@@ -1,5 +1,5 @@
 {
-  "name": "@test/next",
+  "name": "@test/next-pages",
   "private": true,
   "scripts": {
     "dev": "next dev",
