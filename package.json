@@ -1,5 +1,10 @@
 {
-	"dependencies": {
-		"@changesets/cli": "^2.27.1"
-	}
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
+  },
+  "scripts": {
+    "change": "changeset",
+    "release": "changeset version",
+    "publish": "changeset publish"
+  }
 }
