@@ -2,12 +2,9 @@
 
 This package displays an overlay during Hydration Errors, providing an explicit diff between the server-side and client-side renders.
 
-Before | Afterß
+Before | After
 
-<div style="display: flex;">
-  <img src="./imgs/before.png" alt="before" style="width: 50%;">
-  <img src="./imgs/after.png" alt="after" style="width: 50%;">
-</div>
+![after](./imgs/after.png)
 
 ## Installation
 
