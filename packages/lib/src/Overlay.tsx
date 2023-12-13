@@ -1,4 +1,5 @@
 "use client";
+
 import beautify from "beautify";
 import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
@@ -9,11 +10,13 @@ const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
   : ReactDiffViewer;
 
 export function Overlay() {
+  console.log("rendering Overlay");
+
   const [SSRHtml, setSSRHtml] = useState("");
   const [CSRHtml, setCSRHtml] = useState("");
 
   const [showModal, setShowModal] = useState(true);
-  const [hasHydrationMismatch, setHasHydrationMismatch] = useState(true);
+  const [hasHydrationMismatch, setHasHydrationMismatch] = useState(false);
 
   useEffect(() => {
     const ssrHtml = window.BUILDER_HYDRATION_OVERLAY.SSR_HTML;
@@ -36,7 +39,17 @@ export function Overlay() {
     setShowModal(false);
   };
 
-  if (!showModal || !hasHydrationMismatch || typeof document === "undefined") {
+  const renderModal =
+    showModal && hasHydrationMismatch && typeof document !== "undefined";
+
+  console.log("renderModal", {
+    showModal: showModal,
+    hasHydrationMismatch: hasHydrationMismatch,
+    doc: typeof document !== "undefined",
+    renderModal,
+  });
+
+  if (!renderModal) {
     return null;
   }
 
