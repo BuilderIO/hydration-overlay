@@ -11,7 +11,7 @@ window.addEventListener("error", (event) => {
       window.BUILDER_HYDRATION_OVERLAY.APP_ROOT_SELECTOR
     );
     if (appRootEl) {
-      window.BUILDER_HYDRATION_OVERLAY.CSR_HTML = appRootEl.outerHTML;
+      window.BUILDER_HYDRATION_OVERLAY.CSR_HTML = appRootEl.innerHTML;
     }
   }
 });
@@ -21,5 +21,5 @@ let BUILDER_HYDRATION_OVERLAY_ELEMENT = document.querySelector(
 );
 if (BUILDER_HYDRATION_OVERLAY_ELEMENT) {
   window.BUILDER_HYDRATION_OVERLAY.SSR_HTML =
-    BUILDER_HYDRATION_OVERLAY_ELEMENT.outerHTML;
+    BUILDER_HYDRATION_OVERLAY_ELEMENT.innerHTML;
 }

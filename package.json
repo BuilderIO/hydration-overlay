@@ -5,6 +5,6 @@
   "scripts": {
     "change": "changeset",
     "release": "changeset version",
-    "publish": "changeset publish"
+    "publish": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
   }
 }

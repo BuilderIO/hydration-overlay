@@ -30,25 +30,28 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
+    "@types/beautify": "^0.0.3",
     "@types/diff": "^5.0.9",
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "^18.2.43",
     "@vitejs/plugin-react": "^4.0.4",
+    "diff": "^5.1.0",
+    "git-diff": "^2.0.6",
+    "html-differ": "^1.4.0",
+    "next": "14.0.4",
+    "pretty": "^2.0.0",
     "publint": "^0.2.6",
     "react": "^18.2.0",
+    "react-diff-view": "^3.2.0",
     "rimraf": "^3.0.2",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^4.4.9",
-    "webpack": "^5.89.0",
-    "diff": "^5.1.0",
-    "git-diff": "^2.0.6",
-    "html-differ": "^1.4.0",
-    "pretty": "^2.0.0",
-    "react-diff-view": "^3.2.0"
+    "webpack": "^5.89.0"
   },
   "dependencies": {
+    "beautify": "^0.0.8",
     "react-diff-viewer": "^3.1.1"
   }
 }
