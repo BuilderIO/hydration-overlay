@@ -1,3 +1,5 @@
+window.BUILDER_HYDRATION_OVERLAY = {};
+
 window.addEventListener("error", (event) => {
   const msg = event.message.toLowerCase();
   const isReactDomError = event.filename.includes("react-dom");
@@ -5,19 +7,19 @@ window.addEventListener("error", (event) => {
 
   if (isReactDomError && isHydrationMsg) {
     window.BUILDER_HYDRATION_OVERLAY.ERROR = true;
-    // TO-DO: parametrize this.
-    let appRoot = document.querySelector(
+    let appRootEl = document.querySelector(
       window.BUILDER_HYDRATION_OVERLAY.APP_ROOT_SELECTOR
     );
-    if (appRoot) {
-      window.BUILDER_HYDRATION_OVERLAY.CSR_HTML = appRoot.innerHTML;
+    if (appRootEl) {
+      window.BUILDER_HYDRATION_OVERLAY.CSR_HTML = appRootEl.outerHTML;
     }
   }
 });
 
-let appRoot = document.querySelector(
+let BUILDER_HYDRATION_OVERLAY_ELEMENT = document.querySelector(
   window.BUILDER_HYDRATION_OVERLAY.APP_ROOT_SELECTOR
 );
-if (appRoot) {
-  window.BUILDER_HYDRATION_OVERLAY.SSR_HTML = appRoot.innerHTML;
+if (BUILDER_HYDRATION_OVERLAY_ELEMENT) {
+  window.BUILDER_HYDRATION_OVERLAY.SSR_HTML =
+    BUILDER_HYDRATION_OVERLAY_ELEMENT.outerHTML;
 }

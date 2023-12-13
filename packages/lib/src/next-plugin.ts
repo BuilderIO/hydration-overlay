@@ -48,7 +48,10 @@ async function addScriptToEntryProperty(currentEntryProperty, buildContext) {
 
       const currentEntryPoint = newEntryProperty[entryPointName];
       const newEntryPoint = getEntryPoint(currentEntryPoint);
-      const injectedScriptPath = path.join(__dirname, "injected.js");
+      const injectedScriptPath = path.join(
+        __dirname,
+        "hydration-overlay-initializer.js"
+      );
 
       if (!newEntryPoint || newEntryPoint.includes(injectedScriptPath)) {
         return newEntryProperty;
@@ -61,8 +64,6 @@ async function addScriptToEntryProperty(currentEntryProperty, buildContext) {
         // In other modes we insert at the beginning so that the SDK initializes as early as possible.
         newEntryPoint.unshift(injectedScriptPath);
       }
-
-      console.log({ newEntryPoint });
 
       newEntryProperty[entryPointName] = newEntryPoint;
     }
@@ -79,13 +80,12 @@ export const withHydrationOverlay =
       webpack(config, ctx) {
         if (!ctx.dev) {
           console.warn(
-            "`withHydrationOverlay` is only meant for development mode. Please remove it from your next.config.js."
+            "[ReactHydrationOverlay]: This plugin is only meant to be used in development mode. Please remove it from your next.config.js."
           );
         }
 
         let rawNewConfig = { ...config };
 
-        // const origEntryProperty = newConfig.entry;
         rawNewConfig.entry = async () =>
           addScriptToEntryProperty(config.entry, ctx);
 
