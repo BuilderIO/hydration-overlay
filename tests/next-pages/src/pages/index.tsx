@@ -1,7 +1,8 @@
 export default function Home() {
   return (
     <>
-      {typeof window !== "undefined" ? <div>Random</div> : <div>Random </div>}
+      <div>normal content</div>
+      {typeof window === "undefined" ? <div>SERVER</div> : <span>BROWSER</span>}
       <button style={{ all: "unset" }}>Hello world</button>
       <button
         style={{

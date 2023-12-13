@@ -1,5 +1,4 @@
 "use client";
-import pretty from "pretty";
 import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
@@ -21,9 +20,9 @@ export function Overlay() {
 
     if (!ssrHtml || !newCSRHtml) return;
 
-    const newSSR = pretty(ssrHtml);
+    const newSSR = ssrHtml;
     setSSRHtml(newSSR);
-    const newCSR = pretty(newCSRHtml);
+    const newCSR = newCSRHtml;
     setCSRHtml(newCSR);
 
     setShowModal(true);
