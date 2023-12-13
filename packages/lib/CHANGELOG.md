@@ -1,5 +1,11 @@
 # @builder.io/react-hydration-overlay
 
+## 0.0.3
+
+### Patch Changes
+
+- 198726a: Fix: add 'use client' banner. Plugin now works in NextJS App directory.
+
 ## 0.0.1
 
 ### Patch Changes
