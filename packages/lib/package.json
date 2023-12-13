@@ -1,0 +1,52 @@
+{
+  "name": "@builder.io/react-hydration-overlay",
+  "description": "React utility for descriptive hydration mismatch errors.",
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/HydrationOverlay.js",
+  "module": "./dist/HydrationOverlay.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/HydrationOverlay.mjs",
+      "require": "./dist/HydrationOverlay.js"
+    },
+    "./next": {
+      "import": "./dist/next-plugin.mjs",
+      "require": "./dist/next-plugin.js"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsup ./src/*  --dts --format esm,cjs --external webpack --clean",
+    "pkg:attw": "attw --pack .",
+    "pkg:publint": "publint --strict",
+    "lint-pkg": "pnpm pkg:publint && pnpm pkg:attw"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.3",
+    "@types/beautify": "^0.0.3",
+    "@types/diff": "^5.0.9",
+    "@types/node": "^20",
+    "@types/pretty": "^2.0.3",
+    "@types/react": "^18.2.43",
+    "@vitejs/plugin-react": "^4.0.4",
+    "next": "14.0.4",
+    "publint": "^0.2.6",
+    "react": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vite": "^4.4.9",
+    "webpack": "^5.89.0"
+  },
+  "dependencies": {
+    "beautify": "^0.0.8",
+    "react-diff-viewer": "^3.1.1"
+  }
+}

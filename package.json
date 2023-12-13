@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
+  },
+  "scripts": {
+    "change": "changeset",
+    "release": "changeset version",
+    "publish": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
+  }
+}
