@@ -3,8 +3,8 @@
     "@changesets/cli": "^2.27.1"
   },
   "scripts": {
-    "change": "changeset",
-    "release": "changeset version",
-    "pub": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
+    "c:add": "changeset add",
+    "c:version": "changeset version",
+    "ci:release": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
   }
 }
