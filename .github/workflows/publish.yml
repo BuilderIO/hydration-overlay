@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Setup
         uses: actions/checkout@v3
+        with:
+          # need this custom token to run CI checks on the created PR
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -38,6 +41,9 @@ jobs:
           title: "📦 Publish Package"
           commit: "📦 Publish Package"
         env:
+          # need this custom token to run CI checks on the created PR
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+
           # probably don't need both of those, but it works!
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
