@@ -10,8 +10,6 @@ const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
   : ReactDiffViewer;
 
 export function Overlay() {
-  console.log("rendering Overlay");
-
   const [SSRHtml, setSSRHtml] = useState("");
   const [CSRHtml, setCSRHtml] = useState("");
 
@@ -41,13 +39,6 @@ export function Overlay() {
 
   const renderModal =
     showModal && hasHydrationMismatch && typeof document !== "undefined";
-
-  console.log("renderModal", {
-    showModal: showModal,
-    hasHydrationMismatch: hasHydrationMismatch,
-    doc: typeof document !== "undefined",
-    renderModal,
-  });
 
   if (!renderModal) {
     return null;
