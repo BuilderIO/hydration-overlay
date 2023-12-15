@@ -30,7 +30,7 @@ const App = () => {
 
 ### Plugin
 
-Second, add the plugin for your framework. Currently, we only support Next.js.
+Second, add the plugin for your framework. Currently, we support Next.js & Webpack.
 
 #### Next.js
 
@@ -53,6 +53,32 @@ module.exports = withHydrationOverlay({
    */
   appRootSelector: "main",
 })(nextConfig);
+```
+
+#### Webpack
+
+Here is an example (still with Next), but using the Webpack helper directly:
+
+```ts
+const {
+  withHydrationOverlayWebpack,
+} = require("@builder.io/react-hydration-overlay/webpack");
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  webpack: (config, options) => {
+    config = withHydrationOverlayWebpack({
+      appRootSelector: "#__next",
+      isMainAppEntryPoint: (entryPointName) =>
+        !options.isServer &&
+        (entryPointName === "pages/_app" || entryPointName === "main-app"),
+    })(config);
+    return config;
+  },
+};
+
+module.exports = nextConfig;
 ```
 
 ## Notes
@@ -81,7 +107,6 @@ To add support for other frameworks, what is needed is a plugin that injects the
 - [ ] Remix
 - [ ] Vite SSR
 
-
 <br>
 <br>
 
@@ -93,3 +118,19 @@ To add support for other frameworks, what is needed is a plugin that injects the
        </picture>
    </a>
 </p>
+
+## Release process
+
+### Add changesets
+
+in the same PR where your change is made, run:
+
+```
+pnpm c:add
+```
+
+and follow instructions to add changesets. You can then merge your PR.
+
+### Merge automated PR
+
+Once your PR is merged, the `changeset` bot will open a PR with the changeset. You can merge this PR once CI passes. This will trigger a release.
