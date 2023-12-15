@@ -27,7 +27,11 @@ const withHydrationOverlay =
 
         return withHydrationOverlayWebpack({
           appRootSelector: pluginOptions.appRootSelector || "#__next",
-          isMainAppEntryPoint,
+          isMainAppEntryPoint: (entryPointName: string) =>
+            !ctx.isServer &&
+            (entryPointName === "pages/_app" ||
+              // entrypoint for `/app` pages
+              entryPointName === "main-app"),
         })(config);
       },
     };
