@@ -106,3 +106,16 @@ To add support for other frameworks, what is needed is a plugin that injects the
 - [x] Next.js
 - [ ] Remix
 - [ ] Vite SSR
+
+
+<br>
+<br>
+
+<p align="center">
+   <a href="https://www.builder.io/m/developers">
+      <picture>
+         <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/844291/230786554-eb225eeb-2f6b-4286-b8c2-535b1131744a.png">
+         <img width="250" alt="Made with love by Builder.io" src="https://user-images.githubusercontent.com/844291/230786555-a58479e4-75f3-4222-a6eb-74c5af953eac.png">
+       </picture>
+   </a>
+</p>
