@@ -25,6 +25,10 @@
     "./next": {
       "import": "./dist/next-plugin.mjs",
       "require": "./dist/next-plugin.js"
+    },
+    "./webpack": {
+      "import": "./dist/webpack.mjs",
+      "require": "./dist/webpack.js"
     }
   },
   "scripts": {
