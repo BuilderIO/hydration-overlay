@@ -58,6 +58,7 @@ export function Overlay() {
         display: "flex",
         flexDirection: "column",
         fontFamily: "monospace",
+        direction: "ltr",
       }}
       onClick={hideModal}
     >
