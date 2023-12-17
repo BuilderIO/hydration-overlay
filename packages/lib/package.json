@@ -15,20 +15,20 @@
     "type": "git",
     "url": "git+https://github.com/BuilderIO/hydration-overlay.git"
   },
-  "main": "./dist/HydrationOverlay.js",
+  "main": "./dist/HydrationOverlay.cjs",
   "module": "./dist/HydrationOverlay.mjs",
   "exports": {
     ".": {
       "import": "./dist/HydrationOverlay.mjs",
-      "require": "./dist/HydrationOverlay.js"
+      "require": "./dist/HydrationOverlay.cjs"
     },
     "./next": {
       "import": "./dist/next-plugin.mjs",
-      "require": "./dist/next-plugin.js"
+      "require": "./dist/next-plugin.cjs"
     },
     "./webpack": {
       "import": "./dist/webpack.mjs",
-      "require": "./dist/webpack.js"
+      "require": "./dist/webpack.cjs"
     }
   },
   "scripts": {

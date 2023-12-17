@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["node"],
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
@@ -11,7 +10,6 @@
     "moduleResolution": "Bundler",
     "jsx": "react",
     "module": "ESNext",
-    "outDir": "./types"
   },
-  "include": ["./src/**/*", "module-augmentations.d.ts"]
+  "include": ["./src/**/*", "module-augmentations.d.ts", "tsup.config.ts"]
 }

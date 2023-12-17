@@ -2,13 +2,6 @@ import webpack, { Configuration, EntryObject } from "webpack";
 import path from "path";
 import { fileURLToPath } from "url";
 
-let dirname;
-try {
-  dirname = __dirname;
-} catch (e) {
-  dirname = path.dirname(fileURLToPath(import.meta.url));
-}
-
 // `entryPoint` can be a string, array of strings, or object whose `import` property is one of those two
 const getEntryPoint = <T extends keyof EntryObject>(
   entryPoint: EntryObject[T]
@@ -49,7 +42,7 @@ async function addScriptToEntryProperty({
       const currentEntryPoint = newEntryProperty[entryPointName];
       const newEntryPoint = getEntryPoint(currentEntryPoint);
       const injectedScriptPath = path.join(
-        dirname,
+        __dirname,
         "hydration-overlay-initializer.js"
       );
 

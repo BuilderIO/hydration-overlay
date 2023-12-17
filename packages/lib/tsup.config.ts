@@ -8,5 +8,11 @@ export default defineConfig([
     external: ["webpack"],
     bundle: false,
     entry: ["src/**/*"],
+    shims: true,
+    outExtension({ format }) {
+      return {
+        js: `.${format === "esm" ? "m" : "c"}js`,
+      };
+    },
   },
 ]);
