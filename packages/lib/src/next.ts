@@ -9,7 +9,7 @@ export type NextPluginOptions = {
 };
 
 const withHydrationOverlay =
-  (pluginOptions: NextPluginOptions) =>
+  (pluginOptions: NextPluginOptions = {}) =>
   (nextConfig: NextConfig = {}): NextConfig => {
     const extraConfig: NextConfig = {
       webpack(config, ctx) {
