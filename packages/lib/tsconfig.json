@@ -7,9 +7,9 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "strict": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "NodeNext",
     "jsx": "react",
-    "module": "ESNext",
+    "module": "NodeNext",
   },
   "include": ["./src/**/*", "module-augmentations.d.ts", "tsup.config.ts"]
 }

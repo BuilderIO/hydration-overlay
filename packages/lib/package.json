@@ -23,8 +23,8 @@
       "require": "./dist/HydrationOverlay.cjs"
     },
     "./next": {
-      "import": "./dist/next-plugin.mjs",
-      "require": "./dist/next-plugin.cjs"
+      "import": "./dist/next.mjs",
+      "require": "./dist/next.cjs"
     },
     "./webpack": {
       "import": "./dist/webpack.mjs",
@@ -40,7 +40,8 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "webpack": ">=4"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
@@ -49,13 +50,13 @@
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "^18.2.43",
+    "bunchee": "^4.1.0",
     "next": "14.0.4",
     "publint": "^0.2.6",
     "react": "^18.2.0",
     "rimraf": "^3.0.2",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "webpack": "^5.89.0"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "beautify": "^0.0.8",
