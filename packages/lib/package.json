@@ -29,7 +29,8 @@
     "./webpack": {
       "import": "./dist/webpack.mjs",
       "require": "./dist/webpack.cjs"
-    }
+    },
+    "./hydration-overlay-initializer": "./dist/hydration-overlay-initializer.js"
   },
   "scripts": {
     "build": "bunchee",
