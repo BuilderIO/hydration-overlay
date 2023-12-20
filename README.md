@@ -88,7 +88,7 @@ module.exports = nextConfig;
 
 ## Caveats
 
-This package works by comparing the HTML received from the server with the HTML rendered by the client, which has one improtant consequence. React re-renders the entire app when hydration fails, potentially introducing even more changes.
+This package works by comparing the HTML received from the server with the HTML rendered by the client, which has one important consequence. React re-renders the entire app when hydration fails, potentially introducing even more changes.
 
 The biggest example is `style` attributes: React appends `;` to each one and alters the whitespace. In [more extreme examples](https://x.com/samijaber_/status/1734760349662957906?s=20), it causes enormous diffs for properties like `all: unset`.
 
