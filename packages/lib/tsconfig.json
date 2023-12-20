@@ -11,5 +11,5 @@
     "jsx": "react",
     "module": "ESNext"
   },
-  "include": ["./src/**/*", "module-augmentations.d.ts", "tsup.config.ts"]
+  "include": ["./src/**/*", "module-augmentations.d.ts"]
 }
