@@ -1,5 +1,13 @@
 # @builder.io/react-hydration-overlay
 
+## 0.0.6
+
+### Patch Changes
+
+- 6a3bf11: Chore: use `bunchee` to build lib
+- cb37e20: Style: add `ltr` direction style in `Overlay.tsx`
+- 6a3bf11: fix webpack import
+
 ## 0.0.5
 
 ### Patch Changes
