@@ -1,5 +1,5 @@
 import { type NextConfig } from "next";
-import { withHydrationOverlayWebpack } from "./webpack";
+import { withHydrationOverlayWebpack } from "./webpack.js";
 
 export type NextPluginOptions = {
   /**
@@ -9,7 +9,7 @@ export type NextPluginOptions = {
 };
 
 const withHydrationOverlay =
-  (pluginOptions: NextPluginOptions) =>
+  (pluginOptions: NextPluginOptions = {}) =>
   (nextConfig: NextConfig = {}): NextConfig => {
     const extraConfig: NextConfig = {
       webpack(config, ctx) {
@@ -18,12 +18,6 @@ const withHydrationOverlay =
             "[ReactHydrationOverlay]: This plugin is only meant to be used in development mode. Please remove it from your next.config.js."
           );
         }
-
-        const isMainAppEntryPoint = (entryPointName: string) =>
-          !ctx.isServer &&
-          (entryPointName === "pages/_app" ||
-            // entrypoint for `/app` pages
-            entryPointName === "main-app");
 
         return withHydrationOverlayWebpack({
           appRootSelector: pluginOptions.appRootSelector || "#__next",

@@ -17,6 +17,12 @@ export function Overlay() {
   const [hasHydrationMismatch, setHasHydrationMismatch] = useState(false);
 
   useEffect(() => {
+    if (!window.BUILDER_HYDRATION_OVERLAY) {
+      console.warn(
+        "[ReactHydrationOverlay]: No `window.BUILDER_HYDRATION_OVERLAY` found. Make sure the initializer script is properly injected into your app's entry point."
+      );
+      return;
+    }
     const ssrHtml = window.BUILDER_HYDRATION_OVERLAY.SSR_HTML;
     const newCSRHtml = window.BUILDER_HYDRATION_OVERLAY.CSR_HTML;
 

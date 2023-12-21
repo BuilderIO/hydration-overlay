@@ -15,32 +15,33 @@
     "type": "git",
     "url": "git+https://github.com/BuilderIO/hydration-overlay.git"
   },
-  "main": "./dist/HydrationOverlay.js",
+  "main": "./dist/HydrationOverlay.cjs",
   "module": "./dist/HydrationOverlay.mjs",
   "exports": {
     ".": {
       "import": "./dist/HydrationOverlay.mjs",
-      "require": "./dist/HydrationOverlay.js"
+      "require": "./dist/HydrationOverlay.cjs"
     },
     "./next": {
-      "import": "./dist/next-plugin.mjs",
-      "require": "./dist/next-plugin.js"
+      "import": "./dist/next.mjs",
+      "require": "./dist/next.cjs"
     },
     "./webpack": {
       "import": "./dist/webpack.mjs",
-      "require": "./dist/webpack.js"
-    }
+      "require": "./dist/webpack.cjs"
+    },
+    "./hydration-overlay-initializer": "./dist/hydration-overlay-initializer.js"
   },
   "scripts": {
-    "tsc": "tsc",
-    "build": "tsup",
+    "build": "bunchee",
     "pkg:attw": "attw --pack .",
     "pkg:publint": "publint --strict",
     "lint-pkg": "pnpm pkg:publint && pnpm pkg:attw"
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "webpack": ">=4"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
@@ -49,13 +50,11 @@
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "^18.2.43",
+    "bunchee": "^4.1.1",
     "next": "14.0.4",
     "publint": "^0.2.6",
     "react": "^18.2.0",
-    "rimraf": "^3.0.2",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "webpack": "^5.89.0"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "beautify": "^0.0.8",

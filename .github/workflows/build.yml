@@ -11,8 +11,8 @@ on:
       - main
 
 jobs:
-  publish-sdks:
-    name: Publish package
+  react-hydration-overlay:
+    name: Build react-hydration-overlay
     runs-on: ubuntu-latest
 
     steps:
@@ -45,3 +45,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build everything
+        run: pnpm -r build
