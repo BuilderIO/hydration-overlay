@@ -50,7 +50,7 @@
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "^18.2.43",
-    "bunchee": "^4.1.0",
+    "bunchee": "^4.1.1",
     "next": "14.0.4",
     "publint": "^0.2.6",
     "react": "^18.2.0",
