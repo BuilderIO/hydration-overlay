@@ -1,7 +1,4 @@
 import { withHydrationOverlay } from "@builder.io/react-hydration-overlay/next";
-// const {
-//   withHydrationOverlay,
-// } = require("@builder.io/react-hydration-overlay/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
