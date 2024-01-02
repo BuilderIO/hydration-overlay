@@ -1,5 +1,11 @@
 # @builder.io/react-hydration-overlay
 
+## 0.0.7
+
+### Patch Changes
+
+- 4154b00: add missing `type: 'module'` config
+
 ## 0.0.6
 
 ### Patch Changes
