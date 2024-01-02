@@ -101,7 +101,7 @@ Therefore, this tool will give you false positives for style changes.
 
 ## Support
 
-To add support for other frameworks, what is needed is a plugin that injects the `hydration-overlay-initializer.js` script into the app's entry point. See [next-plugin.ts](./packages/lib/src/next-plugin.ts) for more information. PRs welcome!
+To add support for other frameworks, what is needed is a plugin that injects the `hydration-overlay-initializer.js` script into the app's entry point. See [next.ts](./packages/lib/src/next.ts) plugin for more information. PRs welcome!
 
 - [x] Next.js
 - [ ] Remix
