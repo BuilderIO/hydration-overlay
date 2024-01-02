@@ -9,8 +9,8 @@
     "strict": true,
     "moduleResolution": "Bundler",
     "jsx": "react",
-    "noEmit": true,
-    "module": "ESNext"
+    "module": "ESNext",
+    "emitDeclarationOnly": true
   },
   "include": ["./src/**/*", "module-augmentations.d.ts"]
 }
