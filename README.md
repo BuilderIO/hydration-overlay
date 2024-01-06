@@ -86,6 +86,37 @@ module.exports = nextConfig;
 - This package is currently in beta. Please report any issues you find!
 - This package is not intended for production use. We highly recommend you remove this package from your production builds.
 
+To do so, you can use a conditional provider for the HydrationOverlay:
+
+```tsx
+  type Provider = ({ children }: { children: React.ReactNode }) => JSX.Element;
+
+  type ConditionalProviderProps = {
+    condition: boolean;
+    Provider: Provider;
+    children: React.ReactNode;
+  };
+
+  const ConditionalProvider = ({
+    condition,
+    Provider,
+    children,
+  }: ConditionalProviderProps) =>
+    condition ? <Provider>{children}</Provider> : <>{children}</>;
+
+  const App = () => {
+    return (
+      <ConditionalProvider
+        condition={process.env.NODE_ENV !== "production"}
+        Provider={HydrationOverlay}
+      >
+        <YourApp />
+      </ConditionalProvider>
+    );
+  };
+
+```
+
 ## Caveats
 
 This package works by comparing the HTML received from the server with the HTML rendered by the client, which has one important consequence. React re-renders the entire app when hydration fails, potentially introducing even more changes.
