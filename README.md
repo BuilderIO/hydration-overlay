@@ -28,6 +28,22 @@ const App = () => {
 };
 ```
 
+Or, in the Next.js App Router, wrap `{children}` in your [root layout](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required):
+
+```tsx
+import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <HydrationOverlay>{children}</HydrationOverlay>
+      </body>
+    </html>
+  );
+}
+```
+
 ### Plugin
 
 Second, add the plugin for your framework. Currently, we support Next.js & Webpack.
