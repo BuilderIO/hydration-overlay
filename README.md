@@ -19,13 +19,13 @@ First, wrap the root of your app in the `HydrationOverlay` component.
 ```tsx
 import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
 
-const App = () => {
+export default function App() {
   return (
     <HydrationOverlay>
       <YourApp />
     </HydrationOverlay>
   );
-};
+}
 ```
 
 ### Plugin
