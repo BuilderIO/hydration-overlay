@@ -30,7 +30,7 @@ const App = () => {
 
 ### Plugin
 
-Second, add the plugin for your framework. Currently, we support Next.js & Webpack.
+Second, add the plugin for your framework. Currently, we support Next.js & webpack.
 
 #### Next.js
 
@@ -55,9 +55,9 @@ module.exports = withHydrationOverlay({
 })(nextConfig);
 ```
 
-#### Webpack
+#### webpack
 
-Here is an example (still with Next), but using the Webpack helper directly:
+Here is an example (still with Next), but using the webpack helper directly:
 
 ```ts
 const {
