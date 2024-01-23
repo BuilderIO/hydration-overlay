@@ -1,5 +1,11 @@
 # @builder.io/react-hydration-overlay
 
+## 0.0.8
+
+### Patch Changes
+
+- ee99699: Fix: remove filename checks (improves hydration error check)
+
 ## 0.0.7
 
 ### Patch Changes

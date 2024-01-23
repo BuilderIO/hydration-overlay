@@ -1,7 +1,7 @@
 {
   "name": "@builder.io/react-hydration-overlay",
   "description": "React utility for descriptive hydration mismatch errors.",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "files": [
     "dist"
