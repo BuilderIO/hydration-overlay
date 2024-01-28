@@ -1,10 +1,14 @@
 import { type PropsWithChildren } from "react";
 
-export type HydrationOverlayProps = PropsWithChildren & {
+export type OverlayIntegrationsProps = {
   spotlight?: boolean
+}
+
+export type HydrationOverlayProps = PropsWithChildren & {
+  integrations?: OverlayIntegrationsProps
 };
 
 export type OverlayProps = {
-  spotlight?: boolean
+  integrations?: OverlayIntegrationsProps
 }
 

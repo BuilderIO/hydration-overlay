@@ -3,12 +3,12 @@ import { Overlay } from "./Overlay.js";
 import { HydrationOverlayProps } from "./types.js";
 
 export function HydrationOverlay(
-  props: HydrationOverlayProps
+  {children, ...rest}: HydrationOverlayProps
 ) {
   return (
     <>
-      {props.children}
-      <Overlay spotlight={props.spotlight} />
+      {children}
+      <Overlay {...rest} />
     </>
   );
 }

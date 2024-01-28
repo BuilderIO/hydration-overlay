@@ -5,11 +5,13 @@ import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 import { openSpotlight } from "@spotlightjs/spotlight";
+import { OverlayProps } from "./types";
+
 const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
   ? (ReactDiffViewer as any).default
   : ReactDiffViewer;
 
-export function Overlay({ spotlight }: { spotlight?: boolean }) {
+export function Overlay({ integrations }: OverlayProps) {
   const [SSRHtml, setSSRHtml] = useState("");
   const [CSRHtml, setCSRHtml] = useState("");
 
@@ -49,8 +51,12 @@ export function Overlay({ spotlight }: { spotlight?: boolean }) {
   if (!renderModal) {
     return null;
   }
-  if (spotlight) {
-    openSpotlight("/hydration-error");
+  if (integrations?.spotlight) {
+    openSpotlight("/hydration-error", {
+      error: window.BUILDER_HYDRATION_OVERLAY.ERROR,
+      csr: window.BUILDER_HYDRATION_OVERLAY.CSR_HTML,
+      ssr: window.BUILDER_HYDRATION_OVERLAY.SSR_HTML,
+    });
   } else {
     return createPortal(
       <div
