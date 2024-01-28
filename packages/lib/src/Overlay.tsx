@@ -4,12 +4,12 @@ import beautify from "beautify";
 import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
-
+import { openSpotlight } from "@spotlightjs/spotlight";
 const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
   ? (ReactDiffViewer as any).default
   : ReactDiffViewer;
 
-export function Overlay() {
+export function Overlay({ spotlight }: { spotlight?: boolean }) {
   const [SSRHtml, setSSRHtml] = useState("");
   const [CSRHtml, setCSRHtml] = useState("");
 
@@ -49,85 +49,88 @@ export function Overlay() {
   if (!renderModal) {
     return null;
   }
-
-  return createPortal(
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 999998,
-        background: "rgba(0,0,0,0.5)",
-        cursor: "pointer",
-        display: "flex",
-        flexDirection: "column",
-        fontFamily: "monospace",
-        direction: "ltr",
-      }}
-      onClick={hideModal}
-    >
+  if (spotlight) {
+    openSpotlight("/hydration-error");
+  } else {
+    return createPortal(
       <div
         style={{
-          zIndex: 999999,
-          margin: "4rem 6rem",
-          backgroundColor: "white",
-          borderRadius: "0.5rem",
-          overflow: "auto",
-          cursor: "auto",
-          color: "#212529",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 999998,
+          background: "rgba(0,0,0,0.5)",
+          cursor: "pointer",
+          display: "flex",
+          flexDirection: "column",
+          fontFamily: "monospace",
+          direction: "ltr",
         }}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
+        onClick={hideModal}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              borderBottom: "1px solid black",
-              alignItems: "center",
-            }}
-          >
+        <div
+          style={{
+            zIndex: 999999,
+            margin: "4rem 6rem",
+            backgroundColor: "white",
+            borderRadius: "0.5rem",
+            overflow: "auto",
+            cursor: "auto",
+            color: "#212529",
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                padding: "1rem",
+                display: "flex",
+                justifyContent: "space-between",
+                borderBottom: "1px solid black",
+                alignItems: "center",
               }}
             >
-              Hydration Mismatch Occured
-            </div>
+              <div
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: "bold",
+                  padding: "1rem",
+                }}
+              >
+                Hydration Mismatch Occured
+              </div>
 
-            <button
-              style={{
-                all: "unset",
-                cursor: "pointer",
-                padding: "0.5rem",
-                marginRight: "1rem",
-                backgroundColor: "#212529",
-                borderRadius: "0.25rem",
-                color: "white",
-              }}
-              onClick={hideModal}
-            >
-              CLOSE
-            </button>
-          </div>
-          <div style={{ position: "relative", width: "100%" }}>
-            <DiffViewer
-              oldValue={SSRHtml}
-              newValue={CSRHtml}
-              leftTitle={"Server-Side Render"}
-              rightTitle={"Client-Side Render"}
-              compareMethod={DiffMethod.WORDS}
-            />
+              <button
+                style={{
+                  all: "unset",
+                  cursor: "pointer",
+                  padding: "0.5rem",
+                  marginRight: "1rem",
+                  backgroundColor: "#212529",
+                  borderRadius: "0.25rem",
+                  color: "white",
+                }}
+                onClick={hideModal}
+              >
+                CLOSE
+              </button>
+            </div>
+            <div style={{ position: "relative", width: "100%" }}>
+              <DiffViewer
+                oldValue={SSRHtml}
+                newValue={CSRHtml}
+                leftTitle={"Server-Side Render"}
+                rightTitle={"Client-Side Render"}
+                compareMethod={DiffMethod.WORDS}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </div>,
-    document.body
-  );
+      </div>,
+      document.body
+    );
+  }
 }
