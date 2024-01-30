@@ -4,7 +4,6 @@ import beautify from "beautify";
 import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
-import { openSpotlight } from "@spotlightjs/spotlight";
 import { OverlayProps } from "./types";
 
 const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
@@ -51,10 +50,9 @@ export function Overlay({ integrations }: OverlayProps) {
   if (!renderModal) {
     return null;
   }
-  if (integrations?.spotlight) {
-    openSpotlight("/hydration-error");
-  } else {
-    return createPortal(
+
+  const renderOverlay = () => {
+    return (
       <div
         style={{
           position: "absolute",
@@ -102,7 +100,7 @@ export function Overlay({ integrations }: OverlayProps) {
                   padding: "1rem",
                 }}
               >
-                Hydration Mismatch Occured
+                Hydration Mismatch Occurred
               </div>
 
               <button
@@ -131,8 +129,24 @@ export function Overlay({ integrations }: OverlayProps) {
             </div>
           </div>
         </div>
-      </div>,
-      document.body
+      </div>
     );
+  };
+
+  if (integrations?.spotlight) {
+    // Spotlight Integration
+    import("@spotlightjs/spotlight")
+    .then((Spotlight) => {
+      if (Spotlight && Spotlight.openSpotlight) {
+        Spotlight.openSpotlight("/hydration-error");
+      } else {
+        console.error("[ReactHydrationOverlay]: Spotlight package is not available.");
+      }
+    })
+    .catch((error) => {
+      console.error("[ReactHydrationOverlay]: Error importing spotlight package:", error);
+    });
+  } else {
+    return createPortal(renderOverlay(), document.body);
   }
 }
