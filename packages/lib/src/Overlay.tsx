@@ -52,11 +52,7 @@ export function Overlay({ integrations }: OverlayProps) {
     return null;
   }
   if (integrations?.spotlight) {
-    openSpotlight("/hydration-error", {
-      error: window.BUILDER_HYDRATION_OVERLAY.ERROR,
-      csr: window.BUILDER_HYDRATION_OVERLAY.CSR_HTML,
-      ssr: window.BUILDER_HYDRATION_OVERLAY.SSR_HTML,
-    });
+    openSpotlight("/hydration-error");
   } else {
     return createPortal(
       <div

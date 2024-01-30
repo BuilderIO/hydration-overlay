@@ -42,7 +42,8 @@
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16",
-    "webpack": ">=4"
+    "webpack": ">=4",
+    "@spotlightjs/spotlight": "^1.2.10"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
@@ -59,7 +60,6 @@
   },
   "dependencies": {
     "beautify": "^0.0.8",
-    "react-diff-viewer": "^3.1.1",
-    "@spotlightjs/spotlight": "^1.2.8"
+    "react-diff-viewer": "^3.1.1"
   }
 }
