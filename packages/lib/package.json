@@ -43,7 +43,7 @@
     "react": ">=16",
     "react-dom": ">=16",
     "webpack": ">=4",
-    "@spotlightjs/spotlight": "^1.2.10"
+    "@spotlightjs/spotlight": "^1.2.11"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",

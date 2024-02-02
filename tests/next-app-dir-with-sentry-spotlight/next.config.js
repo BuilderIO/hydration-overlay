@@ -2,9 +2,22 @@
 const {
   withHydrationOverlay,
 } = require("@builder.io/react-hydration-overlay/next");
+const WebpackHookPlugin = require("webpack-hook-plugin");
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  webpack: (config,
+    { dev, isServer, nextRuntime }) => {
+    if (dev && isServer && nextRuntime === 'nodejs') {
+      const newConfig = { ...config };
+      newConfig.plugins.push(new WebpackHookPlugin({
+        onBuildStart: ['npx @spotlightjs/spotlight'],
+      }));
+      return newConfig;
+    }
+    return config;
+  },
+};
 
 module.exports = withHydrationOverlay({
   appRootSelector: "main",

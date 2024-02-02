@@ -15,8 +15,8 @@ importers:
   packages/lib:
     dependencies:
       '@spotlightjs/spotlight':
-        specifier: ^1.2.10
-        version: 1.2.10
+        specifier: ^1.2.11
+        version: 1.2.11
       beautify:
         specifier: ^0.0.8
         version: 0.0.8
@@ -98,7 +98,7 @@ importers:
         specifier: ^5
         version: 5.3.3
 
-  tests/next-app-dir-with-spotlight:
+  tests/next-app-dir-with-sentry-spotlight:
     dependencies:
       '@builder.io/react-hydration-overlay':
         specifier: workspace:*
@@ -117,8 +117,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@spotlightjs/spotlight':
-        specifier: ^1.2.10
-        version: 1.2.10
+        specifier: ^1.2.11
+        version: 1.2.11
       '@types/node':
         specifier: ^20
         version: 20.10.4
@@ -137,6 +137,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.3.3
+      webpack-hook-plugin:
+        specifier: ^1.0.7
+        version: 1.0.7
 
   tests/next-pages:
     dependencies:
@@ -2357,18 +2360,18 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@spotlightjs/overlay@1.4.1:
-    resolution: {integrity: sha512-YZj/po1jT2KRzq5zFLgISRrt0S9jkxJf+8e9yW+POaQxaOkM5SB6h9ZjjN4bM9/OlXOIqVGoqFhjr4TaGxglJw==}
+  /@spotlightjs/overlay@1.5.0:
+    resolution: {integrity: sha512-HMzxwHxD4VLZLHL+Ec7akR3NzUxfsGrWJSdFTAjQGeH/bBtZ3wHYIiD1nrpt0ONHYHW2K+bFFX6Razi+OKdlLA==}
 
   /@spotlightjs/sidecar@1.3.5:
     resolution: {integrity: sha512-mtpNWE07DnrUhkvZ1EN8rIH5xVgsfqrw+LSJZTb1FjJ8jODTafiXCJjf40f9tswtGQKhNvaJ+Z24N/o92CYyGw==}
     hasBin: true
 
-  /@spotlightjs/spotlight@1.2.10:
-    resolution: {integrity: sha512-U8rHtNIjDeH1XRhHyMzMbXB+d/8wr53B1aDq45n5XWqghthYR3oRgBaAgMt7Evmf53LSNQY4gN9ZjRBX9/n2Tw==}
+  /@spotlightjs/spotlight@1.2.11:
+    resolution: {integrity: sha512-UE2AQLpGO6bPd7JzEEGfdEzYm1VwpbRMn1BJltpP5j99pKF7DKLWovfaqD7JDCwVQPfDqWzBhb26JTHZJFK+0w==}
     hasBin: true
     dependencies:
-      '@spotlightjs/overlay': 1.4.1
+      '@spotlightjs/overlay': 1.5.0
       '@spotlightjs/sidecar': 1.3.5
 
   /@swc/core-darwin-arm64@1.3.101:
@@ -8864,6 +8867,10 @@ packages:
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+
+  /webpack-hook-plugin@1.0.7:
+    resolution: {integrity: sha512-8GJ+LiR+0rrShCSeeFMaKONX7xMMW3H9Hszmy5IsCereZUJ5AoLhJgn5BhySQChA4Q5lZ7/9KtidDypYHQDDmA==}
+    dev: true
 
   /webpack-sources@3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}

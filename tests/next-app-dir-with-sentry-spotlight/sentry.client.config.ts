@@ -6,7 +6,7 @@ import * as Sentry from "@sentry/nextjs";
 import * as Spotlight from "@spotlightjs/spotlight";
 
 Sentry.init({
-  dsn: "__SENTRY_DSN__",
+  dsn: "SENTRY_DSN",
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
@@ -30,7 +30,7 @@ Sentry.init({
   ],
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
 	Spotlight.init({
 		integrations: [Spotlight.sentry(), Spotlight.hydrationError()]
 	})
