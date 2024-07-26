@@ -5,6 +5,14 @@ import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 
+// Remove emotion-inserted style tags from the HTML string from the server
+// as they get removed before hydration, so they shouldn't show in the diff
+// (pollutes the diff and makes it unusable)
+function removeEmotionStyleTags(htmlString = "") {
+  const regex = /<style\s+data-emotion(?:="[^"]*"|[^>])*>[\s\S]*?<\/style>/g;
+  return htmlString.replace(regex, "");
+}
+
 const DiffViewer: typeof ReactDiffViewer = (ReactDiffViewer as any).default
   ? (ReactDiffViewer as any).default
   : ReactDiffViewer;
@@ -23,7 +31,9 @@ export function Overlay() {
       );
       return;
     }
-    const ssrHtml = window.BUILDER_HYDRATION_OVERLAY.SSR_HTML;
+    const ssrHtml = removeEmotionStyleTags(
+      window.BUILDER_HYDRATION_OVERLAY.SSR_HTML
+    );
     const newCSRHtml = window.BUILDER_HYDRATION_OVERLAY.CSR_HTML;
 
     if (!ssrHtml || !newCSRHtml) return;
