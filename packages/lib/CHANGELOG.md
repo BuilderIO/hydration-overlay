@@ -1,5 +1,11 @@
 # @builder.io/react-hydration-overlay
 
+## 0.0.9
+
+### Patch Changes
+
+- 1077eb4: add support for emotion
+
 ## 0.0.8
 
 ### Patch Changes
