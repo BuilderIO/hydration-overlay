@@ -1,5 +1,11 @@
 # @builder.io/react-hydration-overlay
 
+## 0.1.0
+
+### Minor Changes
+
+- 1075a84: Added a Spotlight integration in hydration-overlay
+
 ## 0.0.9
 
 ### Patch Changes
