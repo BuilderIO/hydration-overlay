@@ -1,11 +1,16 @@
-import React, { type PropsWithChildren } from "react";
+import React from "react";
 import { Overlay } from "./Overlay.js";
+import { HydrationOverlayProps } from "./types.js";
 
-export function HydrationOverlay(props: PropsWithChildren) {
+export function HydrationOverlay(
+  {children, ...rest}: HydrationOverlayProps
+) {
   return (
     <>
-      {props.children}
-      <Overlay />
+      {children}
+      <Overlay {...rest} />
     </>
   );
 }
+
+export * from "./Overlay";
