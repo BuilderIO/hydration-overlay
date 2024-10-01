@@ -45,6 +45,11 @@
     "webpack": ">=4",
     "@spotlightjs/spotlight": "^1.2.11"
   },
+  "peerDependenciesMeta": {
+    "@spotlightjs/spotlight": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.3",
     "@types/beautify": "^0.0.3",
