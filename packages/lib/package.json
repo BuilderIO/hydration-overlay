@@ -60,6 +60,6 @@
   },
   "dependencies": {
     "beautify": "^0.0.8",
-    "react-diff-viewer": "^3.1.1"
+    "react-diff-viewer-continued": "^4.0.3"
   }
 }

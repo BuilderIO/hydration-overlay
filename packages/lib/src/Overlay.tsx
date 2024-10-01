@@ -3,7 +3,7 @@
 import beautify from "beautify";
 import { createPortal } from "react-dom";
 import React, { useEffect, useState } from "react";
-import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
+import ReactDiffViewer, { DiffMethod } from "react-diff-viewer-continued";
 import { OverlayProps } from "./types";
 
 // Remove emotion-inserted style tags from the HTML string from the server
