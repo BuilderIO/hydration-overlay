@@ -20,16 +20,34 @@
   "module": "./dist/HydrationOverlay.mjs",
   "exports": {
     ".": {
-      "import": "./dist/HydrationOverlay.mjs",
-      "require": "./dist/HydrationOverlay.cjs"
+      "import": {
+        "types": "./dist/HydrationOverlay.d.ts",
+        "default": "./dist/HydrationOverlay.mjs"
+      },
+      "require": {
+        "types": "./dist/HydrationOverlay.d.cts",
+        "default": "./dist/HydrationOverlay.cjs"
+      }
     },
     "./next": {
-      "import": "./dist/next.mjs",
-      "require": "./dist/next.cjs"
+      "import": {
+        "types": "./dist/next.d.ts",
+        "default": "./dist/next.mjs"
+      },
+      "require": {
+        "types": "./dist/next.d.cts",
+        "default": "./dist/next.cjs"
+      }
     },
     "./webpack": {
-      "import": "./dist/webpack.mjs",
-      "require": "./dist/webpack.cjs"
+      "import": {
+        "types": "./dist/webpack.d.ts",
+        "default": "./dist/webpack.mjs"
+      },
+      "require": {
+        "types": "./dist/webpack.d.cts",
+        "default": "./dist/webpack.cjs"
+      }
     },
     "./hydration-overlay-initializer": "./dist/hydration-overlay-initializer.js"
   },
