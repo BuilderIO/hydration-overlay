@@ -1,5 +1,28 @@
 # @builder.io/react-hydration-overlay
 
+## 0.2.0
+
+### Minor Changes
+
+- e0807d1: Mark @spotlightjs/spotlight as an optional peer dependency
+
+  If you enable spotlight integration, please install the dependency explicitly
+  in your project.
+
+  ```bash
+  npm install @spotlightjs/spotlight --dev
+  yarn add @spotlightjs/spotlight --dev
+  pnpm add @spotlightjs/spotlight --dev
+  ```
+
+- 22b63c5: Support React 18
+
+  Transition from [react-diff-viewer-continued](https://github.com/praneshr/react-diff-viewer)
+  to a maintained fork [react-diff-viewer-continued](https://github.com/aeolun/react-diff-viewer-continued)
+  that supports React 18.
+
+- b1a2f7b: chore: update build toolchain
+
 ## 0.1.0
 
 ### Minor Changes
