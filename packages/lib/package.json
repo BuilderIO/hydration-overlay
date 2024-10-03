@@ -71,15 +71,15 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",
     "@types/beautify": "^0.0.3",
-    "@types/diff": "^5.0.9",
-    "@types/node": "^20",
+    "@types/diff": "^5.2.2",
+    "@types/node": "^22",
     "@types/pretty": "^2.0.3",
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.3.11",
     "bunchee": "^5.5.0",
-    "next": "14.0.4",
+    "next": "14.2.14",
     "publint": "^0.2.11",
-    "react": "^18.2.0",
-    "typescript": "^5.3.3"
+    "react": "^18.3.1",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "beautify": "^0.0.8",
