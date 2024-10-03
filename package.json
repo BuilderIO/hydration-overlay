@@ -1,11 +1,13 @@
 {
   "dependencies": {
-    "@changesets/cli": "^2.27.1"
+    "@changesets/cli": "^2.27.8"
   },
   "scripts": {
     "c:add": "changeset add",
     "c:version": "changeset version",
-    "ci:release": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish"
+    "ci:release": "pnpm --filter \"@builder.io/react-hydration-overlay\" build && changeset publish",
+    "deps:check": "npx npm-check-updates@latest --configFileName .ncurc.yml --deep",
+    "deps:update": "npx npm-check-updates@latest --configFileName .ncurc.yml -u --deep"
   },
-  "packageManager": "pnpm@8.10.2"
+  "packageManager": "pnpm@9.12.0"
 }
