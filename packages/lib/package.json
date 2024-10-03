@@ -58,9 +58,9 @@
     "lint-pkg": "pnpm pkg:publint && pnpm pkg:attw"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16",
-    "webpack": ">=4",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "webpack": "^4.0.0 || ^5.0.0",
     "@spotlightjs/spotlight": "^1.2.11 || ^2.1.0"
   },
   "peerDependenciesMeta": {
