@@ -1,5 +1,15 @@
 # @builder.io/react-hydration-overlay
 
+## 0.3.0
+
+### Minor Changes
+
+- fe782fd: Allow @spotlightjs/spotlight v2
+
+### Patch Changes
+
+- 05ea38d: Fix peer-dependency range
+
 ## 0.2.0
 
 ### Minor Changes
