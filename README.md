@@ -1,4 +1,4 @@
-# Hydration Overlay 🕵️
+# Dist: Hydration Overlay 🕵️
 
 This package displays an overlay during Hydration Errors, providing an explicit diff between the server-side and client-side renders.
 
