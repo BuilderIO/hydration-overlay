@@ -1,5 +1,5 @@
 {
-  "name": "@builder.io/react-hydration-overlay",
+  "name": "@wayneintacart/react-hydration-overlay",
   "description": "React utility for descriptive hydration mismatch errors.",
   "version": "0.3.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "react",
     "hydration",
     "overlay",
-    "builder.io"
+    "wayneinternet"
   ],
   "repository": {
     "type": "git",
