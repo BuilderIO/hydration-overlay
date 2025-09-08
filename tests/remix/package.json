@@ -10,10 +10,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@builder.io/react-hydration-overlay": "workspace:*",
     "@remix-run/css-bundle": "^2.3.1",
     "@remix-run/node": "^2.3.1",
     "@remix-run/react": "^2.3.1",
     "@remix-run/serve": "^2.3.1",
+    "@test/remix": "link:",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
