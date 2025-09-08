@@ -49,7 +49,18 @@
         "default": "./dist/webpack.cjs"
       }
     },
-    "./hydration-overlay-initializer": "./dist/hydration-overlay-initializer.js"
+    "./hydration-overlay-initializer": "./dist/hydration-overlay-initializer.js",
+    "./remix": {
+      "import": {
+        "types": "./dist/remix.d.ts",
+        "default": "./dist/remix.mjs"
+      },
+      "require": {
+        "types": "./dist/remix.d.cts",
+        "default": "./dist/remix.cjs"
+      }
+    },
+    "./remix-initializer": "./dist/remix-initializer.js"
   },
   "scripts": {
     "build": "bunchee",

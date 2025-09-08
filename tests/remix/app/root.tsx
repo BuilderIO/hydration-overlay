@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -23,7 +24,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <HydrationOverlay>
+          <Outlet />
+        </HydrationOverlay>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

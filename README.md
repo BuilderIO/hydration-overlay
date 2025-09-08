@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
 
 ### Plugin
 
-Second, add the plugin for your framework. Currently, we support Next.js & webpack.
+Second, add the plugin for your framework. Currently, we support Next.js, Remix & webpack.
 
 #### Next.js
 
@@ -69,6 +69,67 @@ module.exports = withHydrationOverlay({
    */
   appRootSelector: "main",
 })(nextConfig);
+```
+
+#### Remix
+
+in `remix.config.js`:
+
+```js
+import { withHydrationOverlayRemix } from "@builder.io/react-hydration-overlay/remix";
+
+/** @type {import('@remix-run/dev').AppConfig} */
+export default withHydrationOverlayRemix({
+  /**
+   * Optional: `appRootSelector` is the selector for the root element of your app. By default, it is `body` which works
+   * for most Remix apps. You can customize this if your app structure is different.
+   */
+  appRootSelector: "body",
+})({
+  ignoredRouteFiles: ["**/.*"],
+  // ... your other Remix config
+});
+```
+
+Then, in your `app/entry.client.tsx`, import the initializer:
+
+```tsx
+import "@builder.io/react-hydration-overlay/remix-initializer";
+import { RemixBrowser } from "@remix-run/react";
+import { startTransition, StrictMode } from "react";
+import { hydrateRoot } from "react-dom/client";
+
+startTransition(() => {
+  hydrateRoot(
+    document,
+    <StrictMode>
+      <RemixBrowser />
+    </StrictMode>
+  );
+});
+```
+
+Finally, wrap your app in `app/root.tsx`:
+
+```tsx
+import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
+
+export default function App() {
+  return (
+    <html lang="en">
+      <head>
+        {/* head content */}
+      </head>
+      <body>
+        <HydrationOverlay>
+          <Outlet />
+        </HydrationOverlay>
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+```
 ```
 
 #### webpack
@@ -120,7 +181,7 @@ Therefore, this tool will give you false positives for style changes.
 To add support for other frameworks, what is needed is a plugin that injects the `hydration-overlay-initializer.js` script into the app's entry point. See [next.ts](./packages/lib/src/next.ts) plugin for more information. PRs welcome!
 
 - [x] Next.js
-- [ ] Remix
+- [x] Remix
 - [ ] Vite SSR
 
 ## Release process

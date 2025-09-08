@@ -9,4 +9,7 @@ declare global {
       APP_ROOT_SELECTOR: string;
     };
   }
+
+  // Build-time injected variable for app root selector
+  var __HYDRATION_OVERLAY_APP_ROOT_SELECTOR__: string | undefined;
 }
